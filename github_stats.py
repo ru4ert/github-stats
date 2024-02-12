@@ -337,10 +337,12 @@ Languages:
             if not self._ignore_forked_repos:
                 repos += contrib_repos.get("nodes", [])
 
+            print(f"Found {len(repos)} repos for {self.username}:")
             for repo in repos:
                 if repo is None:
                     continue
                 name = repo.get("nameWithOwner")
+                print(name)
                 if name in self._repos or name in self._exclude_repos:
                     continue
                 self._repos.add(name)
